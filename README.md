@@ -1,4 +1,4 @@
-## Watchcrunch challenge
+## Watchcrunch
 ## Implemented features
 * [x] Get the users with the number of posts and the title of the last post, who have created more than 10 posts in the last 7 days.
 * [x] Create schedule command to check the weekly active users.
