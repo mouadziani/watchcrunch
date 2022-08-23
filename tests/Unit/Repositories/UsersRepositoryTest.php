@@ -31,21 +31,13 @@ class UsersRepositoryTest extends TestCase
             ->create();
 
         $user1 = User::factory()
-            ->has(
-                Post::factory(['title' => 'last post user1', 'created_at' => now()->subDays(7),])
-            )
-            ->has(
-                Post::factory(['created_at' => now()->subDays(7)])->count(12)
-            )
+            ->has(Post::factory(['title' => 'last post user1', 'created_at' => now()->subDays(7)]))
+            ->has(Post::factory(['created_at' => now()->subDays(7)])->count(12))
             ->create();
 
         $user2 = User::factory()
-            ->has(
-                Post::factory(['title' => 'last post user2', 'created_at' => now()->subDays(7),])
-            )
-            ->has(
-                Post::factory(['created_at' => now()->subDays(7)])->count(10)
-            )
+            ->has(Post::factory(['title' => 'last post user2', 'created_at' => now()->subDays(7)]))
+            ->has(Post::factory(['created_at' => now()->subDays(7)])->count(10))
             ->create();
 
         $activeUsers = $this->userRepository->getMostActiveUsers(10, 7);
