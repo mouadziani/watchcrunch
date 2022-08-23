@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
     {
         User::factory()
             ->has(Post::factory()->times(mt_rand(4, 15)))
-            ->count(10_000)
+            ->count(10000)
             ->create();
     }
 }

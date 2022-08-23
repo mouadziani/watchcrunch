@@ -21,6 +21,9 @@ class EloquentUserRepository implements UserRepository
     {
         return $this->model->query()
             ->select('username')
+            ->whereHas('posts', fn (Builder $query) =>
+                $query->whereDate('created_at', '>=', now()->subDays($duration)), '>',  $minPostsCount
+            )
             ->withCount(['posts as total_posts_count' => fn (Builder $query) =>
                 $query->whereDate('created_at', '>=', now()->subDays($duration))
             ])
@@ -30,7 +33,7 @@ class EloquentUserRepository implements UserRepository
                 ->latest()
                 ->take(1)
             ])
-            ->where('total_posts_count', '>=', $minPostsCount)
+            ->orderByDesc('total_posts_count')
             ->getQuery() // prevent model hydration
             ->get();
     }
