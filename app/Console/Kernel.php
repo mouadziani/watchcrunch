@@ -9,9 +9,12 @@ class Kernel extends ConsoleKernel
 {
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('weekly-active-users:check')
+            ->sundays()
+            ->at('10:00')
+            ->timezone('UTC');
     }
-    
+
     protected function commands()
     {
         $this->load(__DIR__.'/Commands');
