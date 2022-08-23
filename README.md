@@ -6,7 +6,7 @@
 
 # Results
 the screen below describes the number of executed queries and the memory usage as well as the execution time, after running the query that get the most active users, against more 10.000 users and each one has between 4 and 15 posts
-![](doc/debug.png)
+![](docs/debug.png)
 
 ## Used technologies
 - PHP 7.4
